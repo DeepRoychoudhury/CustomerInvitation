@@ -1,4 +1,4 @@
-package com.invitation.model;
+package com.invitation.read;
 
 import java.io.File;
 

@@ -1,4 +1,4 @@
-package com.invitation.model;
+package com.invitation.write;
 
 import com.invitation.enums.FileFormat;
 import com.invitation.enums.FileType;

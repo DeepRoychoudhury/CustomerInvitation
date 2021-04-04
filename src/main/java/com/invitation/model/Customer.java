@@ -1,5 +1,6 @@
 package com.invitation.model;
 
-public class Customer extends Person{
+import org.springframework.beans.factory.annotation.Value;
 
+public class Customer extends Person{
 }

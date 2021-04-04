@@ -4,5 +4,5 @@ import com.invitation.enums.AddressType;
 
 public interface Address {
 
-	public AddressType fetchAddressType(AddressType addressType);
+	public AddressType fetchAddress(AddressType addressType);
 }

@@ -1,6 +1,8 @@
 package com.invitation.write;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +25,16 @@ public class WriteGPSTextFile implements WriteFile {
 		List<GPS_Location> gpsLocation = new ArrayList<GPS_Location>();
 		gpsLocation = str;
 		String list = writeListToString(gpsLocation);
-		File file = new File(list);
+		File file = new File("output.txt");
+		FileWriter fileToSave;
+		try {
+			fileToSave = new	FileWriter(file);
+			fileToSave.write(list);
+			fileToSave.close();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} 
 		return file;
 	}
 

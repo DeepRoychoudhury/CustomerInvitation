@@ -6,7 +6,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.invitation.model.GPS_Location;
+import com.invitation.location.GPS_Location;
 
 public class GPS_FileParser extends FileParser{
 

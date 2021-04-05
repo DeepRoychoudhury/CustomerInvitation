@@ -1,4 +1,4 @@
-package com.invitation.model;
+package com.invitation.location;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.invitation.enums.AddressType;

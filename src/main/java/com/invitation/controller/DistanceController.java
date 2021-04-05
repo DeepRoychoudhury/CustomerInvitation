@@ -1,4 +1,7 @@
+
 package com.invitation.controller;
+
+import java.io.File;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,8 +21,8 @@ public class DistanceController {
 	private InvitationService invitationService;
 	
 	@PostMapping("/uploadFile")
-    public String uploadFile(@RequestParam("File") MultipartFile file){
-		String result = invitationService.fetchUsersEligible(file);
+    public File uploadFile(@RequestParam("File") MultipartFile file){
+		File result = invitationService.fetchUsersEligible(file);
         return result;
     }
 	

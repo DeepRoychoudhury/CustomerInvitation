@@ -1,8 +1,8 @@
 package com.invitation.write;
 
-import com.invitation.enums.FileFormat;
-import com.invitation.enums.FileType;
+import java.io.File;
+import java.util.List;
 
-public interface WriteFile {
-	public String writeFile(FileType fileType, FileFormat fileFormat, String file);
+public interface WriteFile<T> {
+	public File writeFile(List<T> str);
 }

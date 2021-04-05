@@ -1,4 +1,4 @@
-package com.invitation.model;
+package com.invitation.location;
 
 import com.invitation.enums.AddressType;
 

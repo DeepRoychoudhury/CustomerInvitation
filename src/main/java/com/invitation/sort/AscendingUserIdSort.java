@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import com.invitation.model.GPS_Location;
+import com.invitation.location.GPS_Location;
 
 public class AscendingUserIdSort implements Sorting {	
 	

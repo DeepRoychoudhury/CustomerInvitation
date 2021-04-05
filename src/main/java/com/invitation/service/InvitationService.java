@@ -1,5 +1,6 @@
 package com.invitation.service;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import com.invitation.algorithm.Distance;
 import com.invitation.fileformatter.FileFormatter;
 import com.invitation.fileparser.FileParser;
 import com.invitation.sort.Sorting;
+import com.invitation.write.WriteFile;
 
 public abstract class InvitationService<T> {
 	
@@ -24,10 +26,13 @@ public abstract class InvitationService<T> {
 	
 	@Autowired
 	private Sorting sorting;
+	
+	@Autowired
+	private WriteFile writeFile;
 
 	public abstract double findDistance();
 		
-	public String fetchUsersEligible(MultipartFile file) {
+	public File fetchUsersEligible(MultipartFile file) {
 		String str = (String)fileFormatter.fileFormat(file);
 		List<T> listOfLocationParameters = fileParser.fileParser(str);
 		List<T> customersDetails = new ArrayList<T>();
@@ -35,7 +40,7 @@ public abstract class InvitationService<T> {
 			T eligibleUser = (T)distance.findDistance(list);
 			if(eligibleUser != null) customersDetails.add(eligibleUser);
 		}
-		sorting.sortUsers(customersDetails);
-		return "";
+		sorting.sortUsers(customersDetails);		
+		return writeFile.writeFile(customersDetails);
 	}
 }

@@ -13,11 +13,20 @@ public class GPS_File_Formatter extends FileFormatter{
 	@Value("${gpsFilePostfix}")
 	private String POSTFIX;
 	
-	private String fileFormatter(MultipartFile file){	
+	private String fileFormatter(MultipartFile file) throws Exception{	
 		StringBuilder sb = new StringBuilder();
 		try {
 			String str = new String(file.getBytes());
-			sb.append(PREFIX).append(str).append(POSTFIX);			
+			if(!str.contains("[")) {
+			sb.append(PREFIX).append(str).append(POSTFIX);	
+			}
+			else if(str.contains("{\"customers\":[") && str.contains("]}")) {
+				sb = sb.append(str);
+			}
+			else {
+				System.out.println("Cannot format this file");
+				throw new Exception();
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -27,7 +36,13 @@ public class GPS_File_Formatter extends FileFormatter{
 
 	@Override
 	public String fileFormat(MultipartFile file) {
-		String result = fileFormatter(file);
+		String result = null;
+		try {
+			result = fileFormatter(file);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return result;
 	}
 }

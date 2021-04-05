@@ -3,7 +3,7 @@ package com.invitation.algorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import com.invitation.model.GPS_Location;
+import com.invitation.location.GPS_Location;
 
 @Component
 public class Great_Circle_Distance implements Distance {
